@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex; /* 使用Flexbox布局 */
+            max-width: 1300px; 
+            margin: 20px auto; 
+        }
+
+        ul {
+            max-width: 600px; 
+            background-color: #f9f9f9; 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            padding: 10px; 
+            list-style-type: none; /* 去掉默认的列表样式 */
+        }
+
+        li {
+            padding: 15px; 
+            border-bottom: 1px solid #ddd; 
+            cursor: pointer; 
+            color: #333; 
+            font-size: 16px; 
+        }
+
+        li:hover {
+            background-color: #8e8d8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <video controls autoplay></video>
+        <ul></ul>
+    </div>
+    <script>
+        fetch("data.json").then(res => {
+            if (!res.ok){
+                alert("请求失败, 错误码" + res.status);
+                return;
+            }
+            return res.json();
+        }).then(data => {
+            const ul = document.querySelector('ul');
+            for(let d of data.datas){
+                const li = document.createElement('li');
+                li.innerHTML = d.title;
+                li.addEventListener("click",() => {
+                    const video = document.querySelector('video');
+                    video.src = d.url;
+                })
+                ul.appendChild(li);
+            }
+        })
+    </script>
+</body>
+</html>

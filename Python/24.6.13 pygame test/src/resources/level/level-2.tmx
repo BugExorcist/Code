@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="66" height="37" tilewidth="10" tileheight="10" infinite="0" nextlayerid="7" nextobjectid="44">
+ <tileset firstgid="1" name="wood3" tilewidth="10" tileheight="10" tilecount="1480" columns="40">
+  <image source="../images/wood3.png" width="400" height="374"/>
+ </tileset>
+ <imagelayer id="2" name="background">
+  <image source="../images/level/level_1.png" width="657" height="370"/>
+  <properties>
+   <property name="background_file_name" value="level_1.png"/>
+  </properties>
+ </imagelayer>
+ <objectgroup id="5" name="对象层 1">
+  <object id="15" name="board" type="board" x="0.00329792" y="319.414" width="659.962" height="9.418">
+   <properties>
+    <property name="kind" value="board"/>
+   </properties>
+  </object>
+  <object id="16" name="blueBird" type="bird" x="39.9466" y="290.02">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="pig" type="pig" x="393.615" y="187.653">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" name="blueBird" type="bird" x="60.0549" y="289.954">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="blueBird" type="bird" x="19.9997" y="289.883">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="24" name="boxWood" type="material" x="342.486" y="230.591" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="25" name="boxWood" type="material" x="341.934" y="274.759" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="27" name="boxWood" type="material" x="425.476" y="274.409" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="28" name="boxWood" type="material" x="516.327" y="258.082" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="29" name="boxWood" type="material" x="425.642" y="230.756" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="31" name="mediumWood" type="material" x="494.539" y="305.064" width="85.6465" height="10.8688">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="32" name="sling" type="sling" x="156.326" y="271.05">
+   <properties>
+    <property name="kind" value="sling"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="34" name="mediumWood" type="material" x="367.903" y="216.301" width="85.6465" height="10.8688">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="35" name="pig" type="pig" x="525.273" y="215.851">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" name="blueBird" type="bird" x="79.9091" y="289.909">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" name="blueBird" type="bird" x="100" y="289.818">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" name="blueBird" type="bird" x="120" y="289.909">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="42" name="pig" type="pig" x="404.25" y="276">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

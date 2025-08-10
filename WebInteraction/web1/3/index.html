@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <div>
+
+    </div>
+</body>
+<script>
+    class Block{
+        constructor(row, col, width, height, color){
+            this.row = row;
+            this.col = col;
+            this.width = width;
+            this.height = height;
+            this.color = color;
+            this.div = document.createElement('div');
+            this.div.style.cssText =`
+            position: absolute;
+            left:${col * width}px;
+            top:${row * height}px;
+            width:${width}px;
+            height:${height}px;
+            background-color:${color};
+            border:3px solid black
+            `;
+            document.querySelector('div').appendChild(this.div);
+        }
+
+        setColor(color){
+            this.div.style.backgroundColor = color;
+        }
+
+        stepOn(x, y){
+            return this.div.offsetLeft <= x && this.div.offsetLeft + this.width >= x &&
+            this.div.offsetTop <= y &&this.div.offsetTop + this.height >= y;
+        }
+    }
+
+    class Game{
+        constructor(rows, cols, colWidth, rowHeight, color){
+            this.rows = rows;
+            this.cols = cols;
+            this.colWidth = colWidth;
+            this.rowHeight = rowHeight;
+            this.color = color;
+            this.init();
+            this.addEvent();
+        }
+        init(){
+            this.container = document.querySelector('div');
+            this.container.style.cssText = `
+                position: relative;
+                width:${this.cols * this.colWidth}px;
+                height:${this.rows * this.rowHeight}px;
+            `;
+            this.bolcks = [];
+            this.blacks = [];
+            for (let i = 0; i < this.rows; i++){
+                const col = Math.random() * this.cols | 0;
+                for(let j = 0; j < this.cols; j++){
+                    const b = new Block(i, j , this.colWidth, this.rowHeight,
+                        j === col ? this.color : 'white'
+                    )
+                    this.bolcks.push(b);
+                }
+                this.blacks.push(col);
+            }
+        }
+        goOn(){
+            for(let i = 0; i < this.rows; i++){
+                const indsx = i * this.cols + this.blacks[i];
+                this.bolcks[indsx].setColor('white');
+            }
+            this.blacks.pop();
+            this.blacks.unshift(Math.random() * this.cols | 0);
+            for(let i = 0; i < this.rows; i++){
+                const indsx = i * this.cols + this.blacks[i];
+                this.bolcks[indsx].setColor(this.color);
+            }
+        }
+        addEvent(){
+            this.container.addEventListener('click', (e) => {
+                let i = 0;
+                for(;i < this.rows; i++){
+                    const index = i * this.cols + this.blacks[i];
+                    if(this.bolcks[index].stepOn(e.clientX, e.clientY)){
+                        break;
+                    }
+                }
+                if(i === this.rows){
+                    alert('Game Over!');
+                }else if(i === this.rows - 1){
+                    this.goOn();
+                }
+            })
+        }
+    }
+
+    new Game(10, 10, 69, 69, 'black');
+</script>
+</html>

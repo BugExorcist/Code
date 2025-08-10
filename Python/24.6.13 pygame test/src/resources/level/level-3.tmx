@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="66" height="37" tilewidth="10" tileheight="10" infinite="0" nextlayerid="7" nextobjectid="45">
+ <tileset firstgid="1" name="wood3" tilewidth="10" tileheight="10" tilecount="1480" columns="40">
+  <image source="../images/wood3.png" width="400" height="374"/>
+ </tileset>
+ <imagelayer id="2" name="background">
+  <image source="../images/level/level_1.png" width="657" height="370"/>
+  <properties>
+   <property name="background_file_name" value="level_1.png"/>
+  </properties>
+ </imagelayer>
+ <objectgroup id="5" name="对象层 1">
+  <object id="15" name="board" type="board" x="0.00329792" y="319.414" width="659.962" height="9.418">
+   <properties>
+    <property name="kind" value="board"/>
+   </properties>
+  </object>
+  <object id="16" name="redBird" type="bird" x="39.9436" y="290.693">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="pig" type="pig" x="406.299" y="250.689">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" name="redBird" type="bird" x="59.7821" y="290.226">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="redBird" type="bird" x="19.6402" y="290.738">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="24" name="boxWood" type="material" x="429.457" y="230.492" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="25" name="boxWood" type="material" x="429.892" y="274.203" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="26" name="boxWood" type="material" x="475.124" y="275.069" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="27" name="boxWood" type="material" x="475.226" y="231.159" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="28" name="boxWood" type="material" x="474.661" y="186.916" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="29" name="boxWood" type="material" x="519.226" y="274.672" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="32" name="sling" type="sling" x="156.326" y="271.05">
+   <properties>
+    <property name="kind" value="sling"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="35" name="pig" type="pig" x="449.33" y="205.346">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" name="redBird" type="bird" x="79.921" y="289.817">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" name="redBird" type="bird" x="99.7696" y="290.256">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" name="redBird" type="bird" x="120" y="289.818">
+   <properties>
+    <property name="kind" value="bird"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="40" name="boxWood" type="material" x="385.333" y="274" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="41" name="pig" type="pig" x="494.333" y="160.333">
+   <properties>
+    <property name="kind" value="pig"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="42" name="boxWood" type="material" x="520.667" y="140" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="43" name="boxWood" type="material" x="520.333" y="229.333" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+  <object id="44" name="boxWood" type="material" x="520.333" y="185" width="42" height="42">
+   <properties>
+    <property name="kind" value="material"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

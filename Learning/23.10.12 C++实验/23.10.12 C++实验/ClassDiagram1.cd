@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Graphics">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>源.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shape">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAiACAAAAAAAAAIAAAAAEAEAIACAAABgwAEAAAA=</HashCode>
+      <FileName>源.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myCircle">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.35" />
+        <Point X="7" Y="4.558" />
+        <Point X="8.25" Y="4.558" />
+        <Point X="8.25" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAIAABAAAAEAAAAACIAAAAAAAAA=</HashCode>
+      <FileName>源.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myEllipse">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.35" />
+        <Point X="7" Y="4.558" />
+        <Point X="6.5" Y="4.558" />
+        <Point X="6.5" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAAIAgAAAAAEAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>源.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myRectangle">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <InheritanceLine Type="Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.35" />
+        <Point X="7" Y="4.558" />
+        <Point X="4.75" Y="4.558" />
+        <Point X="4.75" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAQAIAAAAAAAEAAAAEAAAAAAAAABA=</HashCode>
+      <FileName>源.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

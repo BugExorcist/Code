@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CS7022: 程序的入口点是全局代码；将忽略此入口点
+dotnet_diagnostic.CS7022.severity = none
+
+# CS8321: 已声明本地函数，但从未使用过
+dotnet_diagnostic.CS8321.severity = none

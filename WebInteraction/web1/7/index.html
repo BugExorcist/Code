@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="mover.js"></script>
+</head>
+<body>
+    <button onclick="sizeOut()">放大</button>
+    <button onclick="sizeIn()">缩小</button>
+    <div></div>
+</body>
+<script>
+    const mover = new Mover(document.querySelector('div'),"2.jpg",500,400);
+
+    function sizeOut(){
+        mover.sizeOut();
+    }
+
+    function sizeIn(){
+        mover.sizeIn();
+    }
+</script>
+</html>

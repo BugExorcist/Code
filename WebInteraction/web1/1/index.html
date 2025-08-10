@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 0;padding: 0">
+    <canvas></canvas>
+</body>
+<script>
+    function drowPopo(popo, ctx){
+        ctx.beginPath();
+        ctx.arc(popo.x, popo.y, popo.r, 0, 2*Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = popo.color;
+        ctx.fill();
+    }
+
+    const COUNT = 500;
+    const popoArr = [];
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const initX = canvas.width / 2;
+    const initY = canvas.height;
+
+    for(let i = 0; i < COUNT; i++){
+        const popo = {
+            x:initX,
+            y:initY,
+            r:1 + Math.random() * 9,
+            color:`rgb(${Math.random()*255|0},${Math.random()*255|0},${Math.random()*255|0})`,
+            v:2+Math.random()*5,
+            angle:Math.PI * Math.random()
+        };
+        popoArr.push(popo);
+    }
+
+    function drawFrame(){
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        for(let i = 0; i < COUNT; i++){
+            drowPopo(popoArr[i], ctx);
+            popoArr[i].x += popoArr[i].v * Math.cos(popoArr[i].angle);
+            popoArr[i].y -= popoArr[i].v * Math.sin(popoArr[i].angle);
+            
+            //让超出边界的popo回到初始位置
+            if (popoArr[i].x < 0 || popoArr[i].x > canvas.width || popoArr[i].y < 0 || popoArr[i].y > canvas.height) {
+                popoArr[i].x = initX;
+                popoArr[i].y = initY;
+            }
+        }
+        setTimeout(drawFrame, 25);
+    }
+
+    drawFrame();
+</script>
+</html>

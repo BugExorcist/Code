@@ -1,0 +1,2 @@
+model_checkpoint_path: "dir3\305\221model.ckpt"
+all_model_checkpoint_paths: "dir3\305\221model.ckpt"

@@ -1,0 +1,207 @@
+# =========================
+# 操作系统临时文件
+# =========================
+Thumbs.db
+ehthumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+Desktop.ini
+*.tmp
+*.temp
+*~
+*.bak
+*.log
+
+# =========================
+# 编译生成文件
+# =========================
+*.exe
+*.o
+*.obj
+*.class
+*.dll
+*.lib
+*.so
+*.dylib
+*.idb
+*.pdb
+*.ilk
+*.pch
+*.exp
+
+# =========================
+# Visual Studio
+# =========================
+.vs/
+*.suo
+*.sdf
+*.opensdf
+*.vcxproj.user
+*.cache
+x64/
+Debug/
+Release/
+*.layout   # Dev-C++ 布局文件
+
+# =========================
+# IntelliJ IDEA
+# =========================
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# =========================
+# Eclipse
+# =========================
+.metadata/
+*.classpath
+*.project
+*.settings/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+.ipynb_checkpoints/
+MNIST_data/
+checkpoint/
+
+# =========================
+# C++ 额外忽略
+# =========================
+*.cpp.e
+*.h.e
+
+# =========================
+# Lua
+# =========================
+*.luao
+
+# =========================
+# Unity
+# =========================
+Library/
+Temp/
+Obj/
+Logs/
+MemoryCaptures/
+UserSettings/
+Build/
+Builds/
+
+# =========================
+# StarUML
+# =========================
+*.uml~
+
+# =========================
+# 压缩与归档文件
+# =========================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.iso
+
+# =========================
+# 可选 - 大型二进制或图片（如果不需要版本控制）
+# =========================
+# *.png
+# *.jpg
+# *.jpeg
+# *.bin
+
+# =========================
+# 可执行文件目录
+# =========================
+*/bin/
+*/build/
+
+# Unity 生成文件
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# Unity Cache
+[Ll]ightmapSnapshot/
+[Oo]cclusionCullingData/
+[Bb]akedData/
+
+# Visual Studio / Rider / MonoDevelop
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+
+# Generated
+sysinfo.txt
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# 压缩文件（防止上传大文件）
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+*.xz
+*.iso
+
+# 可执行及二进制
+*.exe
+*.dll
+*.so
+*.dylib
+*.apk
+*.aab
+*.ipa
+
+# Git LFS 大文件（手动添加时注意）
+*.psd
+*.tga
+*.fbx
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+
+# 日志 / 临时文件
+*.log
+*.tmp
+
+# 本地构建输出
+Build/
+Builds/

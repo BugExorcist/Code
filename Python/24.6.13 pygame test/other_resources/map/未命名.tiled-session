@@ -1,0 +1,113 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-2.tmx",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "全部文件 (*)",
+    "fileStates": {
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/choice_level.tmx": {
+            "scale": 1.948939393939394,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 330.17958485578794,
+                "y": 185.22895125553916
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/level-1.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 330,
+                "y": 184.66666666666663
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/level-1.tmx#wood3": {
+            "scaleInDock": 1
+        },
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/level_map.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 400.5,
+                "y": 215
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/choice_level.tmx": {
+            "scale": 1.7157575757575758,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 335.420346167432,
+                "y": 184.17520310844225
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-1.tmx": {
+            "scale": 1.7157575757575758,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 327.8435181914518,
+                "y": 182.42670434475448
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-1.tmx#wood3": {
+            "scaleInDock": 0.75
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-2.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 263.33333333333326,
+                "y": 156.66666666666669
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-2.tmx#wood3": {
+            "scaleInDock": 0.75
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-3.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
+            "scale": 3,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 388.83333333333326,
+                "y": 251.33333333333331
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-3.tmx#wood3": {
+            "scaleInDock": 0.75
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-8.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 329.6666666666667,
+                "y": 184
+            }
+        },
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-8.tmx#wood3": {
+            "scaleInDock": 0.75
+        }
+    },
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-8.tmx",
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-2.tmx"
+    ],
+    "project": "未命名.tiled-project",
+    "recentFiles": [
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-8.tmx",
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-2.tmx",
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/choice_level.tmx",
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-3.tmx",
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/level-1.tmx",
+        "F:/Code/Python/24.6.13 pygame test/src/resources/level/level-1.tmx",
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/level_map.tmx",
+        "F:/Code/Python/24.6.13 pygame test/other_resources/level/choice_level.tmx"
+    ]
+}

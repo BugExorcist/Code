@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Canvas">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAQAAAAAgQAAAAQAAQAAAAAAAAAQCAAAAAAIgAA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\Canvas.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myCircle">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAIAABAAAAEAAAgACIAAAAAAAAA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\myCircle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myEllipse">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAAIAgAAAAAEAAAgACAAAAEAAAAA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\myEllipse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myLine">
+    <Position X="2" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAIDAAAAAAEgAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\myLine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myRectangle">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAQAIAAAAAAAEAAAgECAAAAAAAABA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\myRectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shape">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAiACAAAAAAAAAIAAAAAEAEAIAjAAABgwAEAAAA=</HashCode>
+      <FileName>F:\Code\Learning\23.10.17 C++实验作业2\23.10.17 C++实验作业2\Shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

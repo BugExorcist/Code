@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>别踩白块</title>
+</head>
+<body style="margin: 0;padding: 0;">
+    <canvas></canvas>
+</body>
+<script>
+    class Block{
+        constructor(row, col, color, width, height){
+            this.row = row;
+            this.col = col;
+            this.color = color;
+            this.width = width;
+            this.height = height;
+        }
+        draw(ctx){
+            ctx.fillStyle = this.color;
+            ctx.fillRect(this.col * this.width, this.row * this.height, this.width, this.height)
+        }
+        fall(){
+            this.row += 1;
+        }
+        stepOn(x, y){
+            const left = this.col * this.width;
+            const right = left + this.width;
+            const top = this.row * this.height;
+            const bottom = top + this.height;
+            return x >= left && x <= right && y >= top && y <= bottom;
+        } 
+    }
+
+    class Pan {
+        constructor(rows, cols, rowHeight, colWidth, color) {
+            this.rows = rows;
+            this.cols = cols;
+            this.rowHeight = rowHeight;
+            this.colWidth = colWidth;
+            this.color = color;
+        }
+        draw(ctx) {
+            ctx.strokeStyle = this.color;
+            for (let i=0;i<=this.rows;i++){
+                ctx.moveTo(0, i*this.rowHeight);
+                ctx.lineTo(this.cols*this.colWidth, i*this.rowHeight);
+                ctx.stroke();
+            }
+            for (let i=0;i<=this.cols;i++){
+                ctx.moveTo(i*this.colWidth ,0);
+                ctx.lineTo(i*this.colWidth, this.rows * this.rowHeight);
+                ctx.stroke();
+            }
+        }
+    }
+
+    class Game {
+        static init() {
+            this.canvas = document.querySelector('canvas');
+            this.canvas.width = this.cols * this.colWidth;
+            this.canvas.height = this.rows * this.rowHeight;
+            this.ctx = this.canvas.getContext('2d');
+            this.pan = new Pan(this.rows, this.cols, this.rowHeight, this.colWidth, this.color);
+            this.blocks = [];
+            for (let i = 0; i < this.rows; i++) {
+                const b = new Block(i, Math.random() * this.cols | 0, this.color, this.colWidth, this.rowHeight);
+                this.blocks.push(b);
+            }
+            this.addEvent();
+        }
+
+        static draw() {
+            this.ctx.fillStyle = 'white';
+            this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            this.pan.draw(this.ctx);
+            for (let b of this.blocks) {
+                b.draw(this.ctx);
+            }
+        }
+
+        static addEvent() {
+            this.canvas.addEventListener('click', (e) => {
+                const x = e.clientX;
+                const y = e.clientY;
+                let index = 0;
+                for(;index < this.rows; index++){
+                    if(this.blocks[index].stepOn(x, y)){
+                        break;
+                    }
+                }
+                if(index === this.rows){
+                    alert('Game Over!');
+                }else if(index === this.rows - 1){
+                    this.goOn();
+                }
+            });
+        }
+
+        static goOn(){
+            this.blocks.pop();
+            for(let b of this.blocks){
+                b.fall();
+            }
+            const b = new Block(0, Math.random() * this.cols | 0, this.color, this.colWidth, this.rowHeight);
+            this.blocks.unshift(b);
+            this.draw();
+        }
+    }
+
+    Game.rows = 10;
+    Game.cols = 10;
+    Game.rowHeight = 70;
+    Game.colWidth = 70;
+    Game.color = "black";
+    Game.init();
+    Game.draw();
+
+</script>
+</html>

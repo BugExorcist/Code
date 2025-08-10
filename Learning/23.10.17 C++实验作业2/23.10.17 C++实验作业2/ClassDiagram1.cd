@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Canvas">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAAAAAAQAAAAQAAQAAAAAAAAAAAAAAAAAAhAA=</HashCode>
+      <FileName>Canvas.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myCircle">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAIAABAAAAEAAAAACIAAAAAAAAA=</HashCode>
+      <FileName>myCircle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myEllipse">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAACAAAAAAAAIAgAAAAAEAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>myEllipse.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="myRectangle">
+    <Position X="3.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAQAQAIAAAAAAAEAAAAEAAAAAAAAABA=</HashCode>
+      <FileName>myRectangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shape">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAiACAAAAAAAAAIAAAAAEAEAIACAAABgwAEAAAA=</HashCode>
+      <FileName>Shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

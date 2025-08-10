@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .left{
+            display: flex;
+            flex: 1;
+        }
+
+        .left > .pic{
+            flex:1;
+            background-image:url("//4.url.cn/zc/v3/img/01-3.jpg");
+            background-size: 100% 100%;
+        }
+
+        .right{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right > div{
+            padding: 10px;
+            margin: 10px 0;
+            display: flex;
+        }
+
+        .right .line1{
+            font-size: 32px;
+        }
+        
+        .line2{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 24px;
+        }
+
+        .line2-right{
+            color:#2C6DFF
+        }
+
+        input{
+            padding: 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #333;
+            flex:1;
+            border: ipx solid #ccc;
+        }
+
+        .line3{
+            flex-direction: column;
+        }
+
+        .errmsg{
+            font-size: 11px;
+            color: #900;
+            padding: 10px;
+            display: none;
+        }
+
+        .line4{
+            flex-direction: column;
+        }
+
+        .pwdtip{
+            display: none;
+        }
+
+        .line5{
+            flex-direction: column;
+        }
+
+        .line5-first{
+            display: flex;
+        }
+
+        .line5-first select{
+            width: 100px;
+            flex: none;
+        }
+        .line6 > button{
+            background-color: #2C6DFF;
+            border: 1px solid #2C6DFF;
+            border-radius: 5px;
+            color:white;
+        }
+
+        .line7 > button{
+            background-color: #2C6DFF;
+            border: 1px solid #2C6DFF;
+            border-radius: 5px;
+            color:white;
+            padding: 5px 0;
+            text-align: center;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .line8{
+            justify-content: left;
+        }
+
+        .line8 > input
+        {
+            flex: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class = "container">
+            <div class="left">
+                <div class = "pic"></div>
+            </div>
+            <div class="right">
+                <div class="line1">
+                    欢迎注册QQ
+                </div>
+                <div class = "line2">
+                    <div calss = "line2-left">每一天，乐在沟通。</div>
+                    <div calss = "line2-right">免费靓号</div>
+                </div>
+                <div class = "line3">
+                    <input class="nick" placeholder="昵称">
+                    <div class="nicktip errmsg">名称不能为空</div>
+                </div>
+                <div class = "line4">
+                    <input class="pwd" placeholder="密码">
+                    <div class="pwdtip">
+                        <div>不能包含空格</div>
+                        <div>长度为8-16个字符</div>
+                        <div>必须为数字、字母、符号中的两种</div>
+                    </div>
+                    <div class="pwderr errmsg">
+                        请输入合法的密码
+                    </div>
+                </div>
+                <div class = "line5">
+                    <div class="line5-first">
+                        <select>
+                            <option>请选择...</option>
+                            <option>+86</option>
+                            <option>+123</option>
+                        </select>
+                        <input class="mobile">
+                    </div>
+                    <div class="mobileerr errmsg">请输入合法的手机号</div>
+                </div>
+                <div class="line6">
+                    <input class="verify-code" placeholder="短信验证码">
+                    <button>获取验证码</button>
+                </div>
+                <div class="line7">
+                    <button>立即注册</button>
+                </div>
+                <div class="line8">
+                    <input type="checkbox">
+                    <span>我已阅读并同意
+                        <a href="javascript:void(0)">相关条款
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 密码验证
+    document.querySelector('.pwd').addEventListener('focus',(e)=>{
+        document.querySelector('.pwdtip').style.display = 'block';
+        document.querySelector('.pwderr').style.display = 'none';
+    });
+
+    document.querySelector('.pwd').addEventListener('blur',(e)=>{
+        document.querySelector('.pwdtip').style.display = 'none';
+        const v = document.querySelector('.pwd').value;
+        let err = false;
+        if(v.length < 8 || v.length > 16){
+            err = true;
+        } 
+        if(!err){
+            const reg = /(\d+([A-Za-z]+|[@-_.]+))|([A-Za-z]+(\d+|[@-_.]+))|([@-_.]+)(\d+|[A-Za-z]+)/;
+            if(!reg.test(v)){
+                err = true;
+            }
+        }
+        if(err){
+            document.querySelector('.pwderr').style.display = 'block';
+        }
+    });
+
+    // 名称不能为空
+    document.querySelector('.nick').addEventListener('blur', (e) => {
+        const nickValue = document.querySelector('.nick').value;
+        if(nickValue.trim() === '') {
+            document.querySelector('.nicktip').style.display = 'block';
+        } else {
+            document.querySelector('.nicktip').style.display = 'none';
+        }
+    }); 
+
+    // 手机号
+    document.querySelector('.mobile').addEventListener('blur', (e) => {
+        const mobileValue = document.querySelector('.mobile').value;
+        const mobileReg = /^1[3456789]\d{9}$/; 
+        if (!mobileReg.test(mobileValue)) {
+            document.querySelector('.mobileerr').style.display = 'block';
+        } else {
+            document.querySelector('.mobileerr').style.display = 'none';
+        }
+    });
+</script>
+</html>
