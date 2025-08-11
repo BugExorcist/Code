@@ -2608,6 +2608,7 @@
 
 
 using System.Security.AccessControl;
+using System.Text;
 using System.Xml.Linq;
 
 public class TreeNode
@@ -3262,6 +3263,113 @@ public class TreeNode
 //    }
 //}
 
+//public class Solution
+//{
+//    List<string> res = new List<string>();
+//    List<char> list = new List<char>();
+//    Dictionary<char, string> dic = new Dictionary<char, string>() {
+//        {'2', "abc"},
+//        {'3', "def"},
+//        {'4', "ghi"},
+//        {'5', "jkl"},
+//        {'6', "mno"},
+//        {'7', "pqrs"},
+//        {'8', "tuv"},
+//        {'9', "wxyz"}
+//    };
+//    public IList<string> LetterCombinations(string digits)
+//    {
+//        if (digits.Length == 0) return res;
+//        Backtrack(0, digits);
+//        return res;
+//    }
+
+//    private void Backtrack(int x, string nums)
+//    {
+//        if (x == nums.Length)
+//        {
+//            res.Add(new string(list.ToArray()));
+//            return;
+//        }
+
+//        foreach (char ch in dic[nums[x]])
+//        {
+//            list.Add(ch);
+//            Backtrack(x + 1, nums);
+//            list.RemoveAt(list.Count - 1);
+//        }
+//    }
+//}
+
+//public class Solution
+//{
+//    List<IList<int>> res = new List<IList<int>>();
+//    List<int> path = new List<int>();
+//    public IList<IList<int>> CombinationSum(int[] candidates, int target)
+//    {
+//        dfs(candidates, target, 0, 0);
+//        return res.ToArray();
+//    }
+
+//    private void dfs(int[] nums, int target, int sum, int idx)
+//    {
+//        if (sum == target)
+//        {
+//            res.Add(new List<int>(path)); // 找到有效组合
+//            return;
+//        }
+
+//        for (int i = idx; i < nums.Length; i++)
+//        {
+//            if(sum + nums[i] > target)// 剪枝
+//            {
+//                continue;
+//            }
+
+//            path.Add(nums[i]);
+//            dfs(nums, target, sum + nums[i], i);// 可以重复选择当前数字，所以idx是i，不是i + 1
+//            path.RemoveAt(path.Count - 1);
+//        }
+//    }
+//}
+
+//public class Solution
+//{
+//    List<string> res = new List<string>();
+//    List<char> path = new List<char>();
+//    public IList<string> GenerateParenthesis(int n)
+//    {
+//        Backtrack(n, 0, 0, new StringBuilder());
+//        return res;
+//    }
+
+//    /// <param name="n">括号数</param>
+//    /// <param name="open">左括号数</param>
+//    /// <param name="close">右括号数</param>
+//    private void Backtrack(int n, int open, int close, StringBuilder sb)
+//    {
+//        if (sb.Length == n * 2)
+//        {
+//            res.Add(sb.ToString());
+//            return;
+//        }
+
+//        if (open < n)
+//        {
+//            sb.Append('(');
+//            Backtrack(n, open + 1, close, sb);
+//            sb.Remove(sb.Length - 1, 1);
+//        }
+
+//        if (close < open)
+//        {
+//            sb.Append(')');
+//            Backtrack(n, open, close + 1, sb);
+//            sb.Remove(sb.Length - 1, 1);
+//        }
+//    }
+//}
+
 class Program
 {
     static void Main(string[] args)
@@ -3284,7 +3392,7 @@ class Program
         int[] arr = { 1,1 };
         int[] arr2 = { 5, 4, 1, 2 };
         int[][] matrix = { new int[] { 5, 1, 9, 11 }, new int[] { 2, 4, 8, 10 }, new int[] { 13, 3, 6, 7 }, new int[] { 15, 14, 12, 16 } };
-        Console.Write(solution.CanFinish(2, new int[][] { new int[] { 1, 0 } }));
+        Console.Write(solution.GenerateParenthesis(1));
         Console.WriteLine();
 
 
