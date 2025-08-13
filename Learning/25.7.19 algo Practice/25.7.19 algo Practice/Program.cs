@@ -3370,6 +3370,258 @@ public class TreeNode
 //    }
 //}
 
+//public class Solution
+//{
+//    bool res = false;
+//    public bool Exist(char[][] board, string word)
+//    {
+//        for (int i = 0; i < board.Length; i++)
+//        {
+//            for (int j = 0; j < board[i].Length; j++)
+//            {
+//                if (board[i][j] == word[0])
+//                {
+//                    dfs(board, word, i, j, 0);
+//                }
+//            }
+//        }
+//        return res;
+//    }
+
+//    private void dfs(char[][] board, string word, int i, int j, int idx)
+//    {
+//        if (i >= board.Length || i < 0 || j < 0 || j >= board[i].Length || board[i][j] != word[idx]) return;
+//        board[i][j] = ' ';
+//        idx++;
+//        if (idx == word.Length)
+//        {
+//            res = true;
+//            return;
+//        }
+//        dfs(board, word, i + 1, j, idx);
+//        dfs(board, word, i, j + 1, idx);
+//        dfs(board, word, i - 1, j, idx);
+//        dfs(board, word, i, j - 1, idx);
+//        idx--;
+//        board[i][j] = word[idx];
+//    }
+//}
+
+
+//public class Solution
+//{
+//    List<IList<string>> res = new List<IList<string>>();
+//    List<string> path = new List<string>();
+//    public IList<IList<string>> Partition(string s)
+//    {
+//        dfs(0, s);
+//        return res;
+//    }
+
+//    private void dfs(int idx, string s)
+//    {
+//        if (idx == s.Length)
+//        {
+//            res.Add(new List<string>(path));
+//            return;
+//        }
+
+//        for (int i = idx; i < s.Length; i++)
+//        {
+//            if (IsPalindrome(s, idx, i))
+//            {
+//                path.Add(s.Substring(idx, i - idx + 1));
+//                dfs(i + 1, s);
+//                path.RemoveAt(path.Count - 1);
+//            }
+//        }
+//    }
+
+//    private bool IsPalindrome(string s, int l, int r)
+//    {
+//        while (l < r)
+//        {
+//            if (s[l] != s[r]) return false;
+//            l++;
+//            r--;
+//        }
+//        return true;
+//    }
+//}
+
+//public class Solution
+//{
+//    List<IList<string>> res = new List<IList<string>>();
+//    List<string> path = new List<string>();
+//    List<bool> zhenxie;
+//    List<bool> fanxie;
+//    List<bool> col;
+//    public IList<IList<string>> SolveNQueens(int n)
+//    {
+//        zhenxie = new List<bool>(new bool[2 * n - 1]);
+//        fanxie = new List<bool>(new bool[2 * n - 1]);
+//        col = new List<bool>(new bool[n]);
+//        dfs(n, 0);
+//        return res;
+//    }
+//    /// <summary>
+//    /// 递归
+//    /// </summary>
+//    /// <param name="n">皇后数</param>
+//    /// <param name="j">当前第j行</param>
+//    private void dfs(int n, int j)
+//    {
+//        if (j == n)
+//        {
+//            res.Add(new List<string>(path));
+//            return;
+//        }
+
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (!col[i] && !zhenxie[i + j] && !fanxie[i - j + n - 1])
+//            {
+//                path.Add(new string('.', i) + 'Q' + new string('.', n - i - 1));
+//                col[i] = zhenxie[i + j] = fanxie[i - j + n - 1] = true;
+//                dfs(n, j + 1);
+//                col[i] = zhenxie[i + j] = fanxie[i - j + n - 1] = false;
+//                path.RemoveAt(path.Count - 1);
+//            }
+//        }
+//    }
+//}
+
+//public class Solution
+//{
+//    public int SearchInsert(int[] nums, int target)
+//    {
+//        int l = 0;
+//        int r = nums.Length - 1;
+//        while (l <= r)
+//        {
+//            int mid = (l + r) / 2;
+//            if (nums[mid] < target)
+//                l = mid + 1;
+//            else if (nums[mid] > target)
+//                r = mid - 1;
+//            else
+//                return mid;
+//        }
+//        return l;
+//    }
+//}
+
+//public class Solution
+//{
+//    public bool SearchMatrix(int[][] matrix, int target)
+//    {
+//        int l = 0;
+//        int r = matrix.Length * matrix[0].Length - 1;
+//        while (l <= r)
+//        {
+//            int mid = (l + r) / 2;
+//            int i = mid / matrix[0].Length;
+//            int j = mid % matrix[0].Length;
+//            if (matrix[i][j] < target)
+//                l = mid + 1;
+//            else if (matrix[i][j] > target)
+//                r = mid - 1;
+//            else
+//                return true;
+//        }
+//        return false;
+//    }
+//}
+
+
+//public class Solution
+//{
+//    public int[] SearchRange(int[] nums, int target)
+//    {
+//        int[] res = { -1, -1 };
+//        int l = 0, r = nums.Length - 1;
+//        while (l <= r)
+//        {
+//            int mid = (l + r) / 2;
+//            if (nums[mid] < target)
+//                l = mid + 1;
+//            else if (nums[mid] > target)
+//                r = mid - 1;
+//            else
+//            {
+//                l = mid;
+//                r = mid;
+//                while (l > 0 && nums[l - 1] == nums[l])
+//                    l--;
+//                while (r < nums.Length - 1 && nums[r + 1] == nums[r])
+//                    r++;
+//                return new int[] { l, r };
+//            }
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int Search(int[] nums, int target)
+//    {
+//        int n = nums.Length;
+//        int limit = nums[n - 1];
+//        int left = 0, right = n - 2;
+//        while (left <= right)
+//        { 
+//            int mid = (left + right) / 2;
+//            if (nums[mid] > limit)
+//                left = mid + 1;
+//            else if (nums[mid] < limit)
+//                right = mid - 1;
+//        }
+//        int l, r;
+//        if (limit >= target)
+//        {
+//            l = left;
+//            r = n - 1;
+//        }
+//        else
+//        {
+//            l = 0;
+//            r = left - 1;
+//        }
+//        while (l <= r)
+//        {
+//            int mid = (l + r) / 2;
+//            if (nums[mid] == target)
+//                return mid;
+//            else if (nums[mid] > target)
+//                r = mid - 1;
+//            else
+//                l = mid + 1;
+//        }
+//        return -1;
+//    }
+//}
+
+
+//public class Solution
+//{
+//    public int FindMin(int[] nums)
+//    {
+//        int n = nums.Length;
+//        int limit = nums[n - 1];
+//        int left = 0, right = n - 2;
+//        while (left <= right)
+//        {
+//            int mid = (left + right) / 2;
+//            if (nums[mid] > limit)
+//                left = mid + 1;
+//            else if (nums[mid] < limit)
+//                right = mid - 1;
+//        }
+//        return nums[left];
+//    }
+//}
+
 class Program
 {
     static void Main(string[] args)
@@ -3392,7 +3644,7 @@ class Program
         int[] arr = { 1,1 };
         int[] arr2 = { 5, 4, 1, 2 };
         int[][] matrix = { new int[] { 5, 1, 9, 11 }, new int[] { 2, 4, 8, 10 }, new int[] { 13, 3, 6, 7 }, new int[] { 15, 14, 12, 16 } };
-        Console.Write(solution.GenerateParenthesis(1));
+        Console.Write(solution.Partition("aab"));
         Console.WriteLine();
 
 
