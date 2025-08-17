@@ -2607,6 +2607,7 @@
 
 
 
+using System;
 using System.Security.AccessControl;
 using System.Text;
 using System.Xml.Linq;
@@ -3622,6 +3623,435 @@ public class TreeNode
 //    }
 //}
 
+//public class Solution
+//{
+//    public bool IsValid(string s)
+//    {
+//        if (s.Length == 0 || s.Length % 2 != 0) return false;
+//        Stack<char> stack = new Stack<char>();
+//        foreach (char ch in s)
+//        {
+//            if (ch == ')')
+//                if (stack.Count > 0 && stack.Peek() == '(')
+//                    stack.Pop();
+//                else
+//                    return false;
+//            else if (ch == ']')
+//                if (stack.Count > 0 && stack.Peek() == '[')
+//                    stack.Pop();
+//                else
+//                    return false;
+//            else if (ch == '}')
+//                if (stack.Count > 0 && stack.Peek() == '{')
+//                    stack.Pop();
+//                else
+//                    return false;
+//            else
+//                stack.Push(ch);
+//        }
+//        return stack.Count == 0;
+//    }
+//}
+
+//public class Solution
+//{
+//    public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+//    {
+//        // 对较短的数组进行二分，优化二分的时间复杂度
+//        if (nums1.Length > nums2.Length)
+//        {
+//            int[] temp = nums1;
+//            nums1 = nums2;
+//            nums2 = temp;
+//        }
+//        int n = nums1.Length;
+//        int m = nums2.Length;
+//        int halfNums = (n + m + 1) / 2;// 两个数组中位数的位置（+1 是为了处理奇数情况）
+
+//        int n1Left = 0; //nums1 的最左分割点
+//        int n1Right = n;// nums1 的最右分割点
+//        while (n1Left <= n1Right)// (这里的左右指的是分割点的位置 有 n + 1个点位，所以n1Right = n 而不是 n - 1)
+//        {
+//            int n1Splite = n1Left + (n1Right - n1Left) / 2;// ** 二分nums1，尝试找到nums1的分割点
+//            int n2Splite = halfNums - n1Splite;// nums2的分割点 = 总数/2 - nums1的分割点
+
+//            // 要找到正确的位置，需要保证nums1的分割点左边的数字小于等于nums2的分割点右边的数字
+//            // 同理，nums2的分割点也要保证满足分割点左边的数字小于等于nums1的分割点右边的数字
+
+//            // ** 注意处理边界值 Splite == 0 和 Splite == Length
+//            int maxLeft1 = (n1Splite == 0) ? int.MinValue : nums1[n1Splite - 1];// nums1的分割点左边第一个数字
+//            int minRight1 = (n1Splite == n) ? int.MaxValue : nums1[n1Splite];// nums1的分割点右边第一个数字
+
+//            int maxLeft2 = (n2Splite == 0) ? int.MinValue : nums2[n2Splite - 1];// nums2的分割点左边第一个数字
+//            int minRight2 = (n2Splite == m) ? int.MaxValue : nums2[n2Splite];// nums2的分割点右边第一个数字
+
+//            if  (maxLeft1 <= minRight2 && maxLeft2 <= minRight1)// 满足要求
+//            {
+//                if ((n + m) % 2 == 1)
+//                {    // 如果总长度是奇数，中位数是左半部分最大值
+//                    return Math.Max(maxLeft1, maxLeft2);
+//                }
+//                else
+//                {   // 偶数情况，中位数是左右两边最值的平均数
+//                    return (Math.Max(maxLeft1, maxLeft2) + Math.Min(minRight1, minRight2)) / 2.0;
+//                }
+//            }
+//            else if (maxLeft1 > minRight2)// nums1分割点左边第一个数字大于nums2分割点右边的数字
+//            {   // 说明nums1切多了,正确的分割点在n1Splite的左边
+//                n1Right = n1Splite - 1;
+//            }
+//            else// nums2分割点左边第一个数字大于nums1分割点右边的数字
+//            {   // 说明nums2切多了,正确的分割点在n2Splite的左边
+//                n1Left = n1Splite + 1;
+//            }
+//        }
+//        // 正常不会走到这里，除非数据有误，返回默认值
+//        return 0.0;
+//    }
+//}
+
+//public class MinStack
+//{
+//    Stack<int> stack;
+//    Stack<int> minStack;
+
+//    public MinStack()
+//    {
+//        stack = new Stack<int>();
+//        minStack = new Stack<int>();
+//    }
+
+//    public void Push(int val)
+//    {
+//        stack.Push(val);
+//        if (minStack.Count == 0 || minStack.Peek() >= val)
+//            minStack.Push(val);
+//        else
+//            minStack.Push(minStack.Peek());
+//    }
+
+//    public void Pop()
+//    {
+//        stack.Pop();
+//        minStack.Pop();
+//    }
+
+//    public int Top()
+//    {
+//        return stack.Peek();
+//    }
+
+//    public int GetMin()
+//    {
+//        return minStack.Peek();
+//    }
+//}
+
+//public class Solution
+//{
+//    public string DecodeString(string s)
+//    {
+//        Stack<StringBuilder> stack = new Stack<StringBuilder>();
+//        Stack<int> countStack = new Stack<int>();
+//        StringBuilder res = new StringBuilder();
+//        int num = 0;
+//        foreach (char ch in s)
+//        {
+//            if (ch >= '0' && ch <= '9')
+//            {
+//                num = num * 10 + ch - '0';
+//            }
+//            else if (ch == '[')
+//            {
+//                stack.Push(res);
+//                countStack.Push(num);
+//                res = new StringBuilder();
+//                num = 0;
+//            }
+//            else if (ch == ']')
+//            {
+//                StringBuilder str = stack.Pop();
+//                int count = countStack.Pop();
+//                for (int i = 0; i < count; i++)
+//                {
+//                    str.Append(res);
+//                }
+//                res = str;// 代码的关键，把外层的str放在内层重复了x次的str前面
+//            }
+//            else
+//            {
+//                res.Append(ch);
+//            }
+//        }
+//        return res.ToString();
+//    }
+//}
+
+//public class Solution
+//{
+//    public int[] DailyTemperatures(int[] temperatures)
+//    {
+//        Stack<int> stack = new Stack<int>();
+//        int n = temperatures.Length;
+//        int[] res = new int[n];
+//        for (int i = 0; i < n; i++)
+//        {
+//            if (stack.Count == 0 || temperatures[i] <= temperatures[stack.Peek()])
+//            {
+//                stack.Push(i);
+//            }
+//            else if (temperatures[i] > temperatures[stack.Peek()])
+//            {
+//                while (stack.Count > 0 && temperatures[i] > temperatures[stack.Peek()])
+//                {
+//                    res[stack.Peek()] = i - stack.Peek();
+//                    stack.Pop();
+//                }
+//                stack.Push(i);
+//            }
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    // 使用单调递增栈 存储每个节点的下标，栈的每个节点的值是递增的
+//    // 对于递增的情况，当前节点的值的左界限就是栈的上一个节点的下标
+//    // 直到出现节点的值小于栈中节点的值时，栈中节点的右界限就是小于它节点值的节点的下标
+//    public int LargestRectangleArea(int[] heights)
+//    {
+//        int maxVal = 0;
+//        Stack<int> stack = new Stack<int>();
+//        int n = heights.Length;
+//        stack.Push(-1);
+//        stack.Push(0);
+//        for (int i = 1; i < n; i++)
+//        {
+//            if (heights[i] >= heights[stack.Peek()])// 递增，不能确定右界限，但是可以确定左界限（即上一个元素）
+//            {
+//                stack.Push(i);
+//            }
+//            else// 递减，可以确定小于当前值的栈中元素的右界限
+//            {
+//                while (stack.Count > 1 && heights[i] < heights[stack.Peek()])
+//                {
+//                    int higth = heights[stack.Pop()];
+//                    int  width = i - stack.Peek() - 1;// 右界限 -  左界限 - 1
+//                    maxVal = Math.Max(maxVal, higth * width);
+//                }
+//                stack.Push(i);
+//            }
+//        }
+//        // 栈非空
+//        while (stack.Count > 1)
+//        {
+//            int higth = heights[stack.Pop()];
+//            int width = n - stack.Peek() - 1;// 右界限 -  左界限 - 1
+//            maxVal = Math.Max(maxVal, higth * width);
+//        }
+//        return maxVal;
+//    }
+//}
+
+//public class Solution
+//{
+//    public long MaxProfit(int[] prices, int[] strategy, int k)
+//    {
+//        int n = prices.Length;
+//        int sum = 0;
+//        for (int i = 0; i < n; i++)
+//        {
+//            sum += prices[i] * strategy[i];
+//        }
+//        int cur = 0;
+//        for (int i = 0; i <= n - k; i++)
+//        {
+//            int pre = 0;
+//            int curVal = 0;
+//            for (int j = i; j < i + k; j++)
+//            {
+//                pre += prices[j] * strategy[j];
+//                if (j < i + k / 2)
+//                    continue;
+//                else
+//                    curVal += prices[j];
+//            }
+//            int x = curVal - pre;
+//            if (x > cur)
+//                cur = x;
+//        }
+//        return sum + cur;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int XorAfterQueries(int[] nums, int[][] queries)
+//    {
+//        foreach (var query in queries)
+//        { 
+//            for (int i = query[0]; i <= query[1]; i += query[2])
+//            {
+//                long tmp = (long)nums[i] * query[3];
+//                tmp %= 1000000007;
+//                nums[i] = (int)tmp;
+//            }
+//        }
+//        int res = nums[0];
+//        for (int i = 1; i < nums.Length; i++)
+//        {
+//            res ^= nums[i];
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    Random random;
+//    public int FindKthLargest(int[] nums, int k)
+//    {
+//        this.random = new Random();
+//        return QuickPick(nums.ToList(), k);
+//    }
+//    /// <summary>
+//    /// 快速选择 基于快速排序的哨兵规划, 使用了随机基准值防止时间复杂度劣化
+//    /// </summary>
+//    private int QuickPick(List<int> nums, int k)
+//    {
+//        int p = nums[random.Next(nums.Count)];
+
+//        List<int> small = new List<int>();
+//        List<int> equal = new List<int>();
+//        List<int> big = new List<int>();
+//        foreach (int num in nums)
+//        {
+//            if (num > p)
+//                big.Add(num);
+//            else if(num < p)
+//                small.Add(num);
+//            else 
+//                equal.Add(num);
+//        }
+
+//        if (k <= big.Count)
+//            return QuickPick(big, k);
+//        else if (k > big.Count + equal.Count)
+//            return QuickPick(small, k - big.Count - equal.Count);
+//        else
+//            return p;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int[] TopKFrequent(int[] nums, int k)
+//    {
+//        Dictionary<int, int> dic = new Dictionary<int, int>();
+//        foreach (int num in nums)
+//        {
+//            dic[num] = dic.GetValueOrDefault(num, 0) + 1;
+//        }
+//        PriorityQueue<int, int> pq = new PriorityQueue<int, int>();
+//        // 优化为维护一个大小为k的最小堆
+//        foreach (var kv in dic)
+//        {
+//            pq.Enqueue(kv.Key, kv.Value);
+//            if (pq.Count > k)
+//                pq.Dequeue(); // 保持堆大小为k
+//        }
+//        // 最后倒序取出
+//        int[] res = new int[k];
+//        for (int i = k - 1; i >= 0; i--)
+//        {
+//            res[i] = pq.Dequeue();
+//        }
+//        return res;
+//    }
+//}
+
+//public class MedianFinder
+//{
+//    int size;
+//    PriorityQueue<int, int> minHeap;
+//    PriorityQueue<int, int> maxHeap;
+
+//    public MedianFinder()
+//    {
+//        size = 0;
+//        minHeap = new PriorityQueue<int, int>();// 小顶堆存大的数字
+//        maxHeap = new PriorityQueue<int, int>(Comparer<int>.Create((a, b) => b - a));// 大顶堆存小的数字
+//    }
+
+//    public void AddNum(int num)
+//    {
+//        size++;
+//        if (size % 2 == 1)
+//        {   // 奇数 存到大顶堆 先放到小顶堆，然后再把小顶堆的堆顶放到大顶堆，保证大顶堆存较小的数
+//            minHeap.Enqueue(num, num);
+//            maxHeap.Enqueue(minHeap.Peek(), minHeap.Peek());
+//            minHeap.Dequeue();
+//        }
+//        else
+//        {   // 偶数 存到小顶堆 先放到大顶堆，然后再把大顶堆的堆顶放到小顶堆，保证小顶堆存较大的数
+//            maxHeap.Enqueue(num, num);
+//            minHeap.Enqueue(maxHeap.Peek(), maxHeap.Peek());
+//            maxHeap.Dequeue();
+//        }
+//    }
+
+//    public double FindMedian()
+//    {
+//        if (size % 2 == 1)
+//            return maxHeap.Peek();
+//        else
+//            return (maxHeap.Peek() + minHeap.Peek()) / 2.0;
+//    }
+//}
+
+//public class Solution
+//{
+//    public long MaxProfit(int[] prices, int[] strategy, int k)
+//    {
+//        long maxVal = long.MinValue;
+//        long val = 0;
+//        for (int j = 0; j < strategy.Length; j++)
+//        {
+//            val += prices[j] * strategy[j];
+//        }
+//        maxVal = Math.Max(maxVal, val);
+//        for (int i = 0; i < k; i++)
+//        {
+//            if (i < k / 2)
+//            {
+//                if (strategy[i] == 0)
+//                    continue;
+//                else
+//                    val += (0 - strategy[i]) * prices[i];
+//            }
+//            else
+//            {
+//                if (strategy[i] == 1)
+//                    continue;
+//                else
+//                    val += (1 - strategy[i]) * prices[i];
+//            }
+//        }
+//        maxVal = Math.Max(maxVal, val);
+//        for (int i = 1; i <= prices.Length - k; i++)
+//        {
+//            if (strategy[i - 1] != 0)
+//                val += (strategy[i - 1] - 0) * prices[i - 1];
+//            val -= prices[i + k / 2 - 1];
+//            if (strategy[i + k - 1] != 1)
+//                val += (1- strategy[i + k - 1]) * prices[i + k - 1];
+//            maxVal = Math.Max(maxVal, val);
+//        }
+//        return maxVal;
+//    }
+//}
+
 class Program
 {
     static void Main(string[] args)
@@ -3641,10 +4071,10 @@ class Program
         //n3.next = n4;
 
         Solution solution = new Solution();
-        int[] arr = { 1,1 };
-        int[] arr2 = { 5, 4, 1, 2 };
+        int[] arr = { 4, 2, 8 };
+        int[] arr2 = { -1, 0, 1 };
         int[][] matrix = { new int[] { 5, 1, 9, 11 }, new int[] { 2, 4, 8, 10 }, new int[] { 13, 3, 6, 7 }, new int[] { 15, 14, 12, 16 } };
-        Console.Write(solution.Partition("aab"));
+        Console.Write(solution.MaxProfit(arr, arr2, 2));
         Console.WriteLine();
 
 
