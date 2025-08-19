@@ -4052,6 +4052,303 @@ public class TreeNode
 //    }
 //}
 
+//public class Solution
+//{
+//    public int MaxProfit(int[] prices)
+//    {
+//        int res = 0;
+//        int curMin = prices[0];
+//        for (int i = 1; i < prices.Length; i++)
+//        {
+//            res = Math.Max(prices[i] - curMin, res);
+//            if (prices[i] < curMin)
+//                curMin = prices[i];
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int MaxProfit(int[] prices)
+//    {
+//        int res = 0;
+//        int curMin = prices[0];
+//        for (int i = 1; i < prices.Length; i++)
+//        {
+//            res = Math.Max(prices[i] - curMin, res);
+//            if (prices[i] < curMin)
+//                curMin = prices[i];
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public bool CanJump(int[] nums)
+//    {
+//        int max = 0;// 当前能达到的最远位置
+//        for (int i = 0; i < nums.Length; i++)
+//        {   // i表示当前位置
+//            if (i > max)
+//                return false;
+//            max = Math.Max(max, i + nums[i]);
+//        }
+//        return true;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int Jump(int[] nums)
+//    {
+//        int res = 0;
+//        int end = 0;
+//        int maxPos = 0;
+//        for (int i = 0; i < nums.Length - 1; i++)
+//        {   // 每次都走最远的位置
+//            maxPos = Math.Max(nums[i] + i, maxPos);
+//            if (i == end)
+//            {
+//                end = maxPos;
+//                res++;
+//            }
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public IList<int> PartitionLabels(string s)
+//    {
+//        Dictionary<char, int> dic = new Dictionary<char, int>();// 字符最后出现的位置
+//        for (int i = 0; i < s.Length; i++)
+//        {
+//            dic[s[i]] = i;
+//        }
+//        List<int> res = new List<int>();
+//        int start = 0;
+//        int end = 0;
+//        for (int i = 0; i < s.Length; i++)
+//        {
+//            end = Math.Max(end, dic[s[i]]);// 更新当前字符串的结束位置
+//            if (i == end)// 字符串中的所有字符都遍历过
+//            {
+//                res.Add(end - start + 1);
+//                start = end + 1;
+//            }
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int ClimbStairs(int n)
+//    {
+//        if (n <= 2)
+//            return n;
+//        int[] dp = new int[n + 1];
+//        dp[0] = 1;
+//        dp[1] = 1;
+//        for (int i = 2; i <= n; i++)
+//        {
+//            dp[i] = dp[i - 1] + dp[i - 2];
+//        }
+//        return dp[n];
+//    }
+//}
+
+//public class Solution
+//{
+//    public IList<IList<int>> Generate(int numRows)
+//    {
+//        List<IList<int>> res = new List<IList<int>>();
+//        res.Add(new List<int> { 1 });
+//        for (int i = 1; i < numRows; i++)
+//        {
+//            List<int> tmp = new List<int> { 1 };
+//            for (int j = 0; j < i - 1; j++)
+//            {
+//                tmp.Add(res[i - 1][j] + res[i - 1][j + 1]);
+//            }
+//            tmp.Add(1);
+//            res.Add(tmp);
+//        }
+//        return res;
+//    }
+//}
+
+//public class Solution
+//{
+//    public int Rob(int[] nums)
+//    {
+//        int n = nums.Length;
+//        int[] dp = new int[n + 1];
+//        dp[0] = 0;
+//        dp[1] = nums[0];
+//        for (int i = 2; i <= n; i++)
+//        {
+//            dp[i] = Math.Max(nums[i - 1] + dp[i - 2], dp[i - 1]);
+//        }
+//        return dp[n];
+//    }
+//}
+
+//public class Solution
+//{
+//    public int NumSquares(int n)
+//    {
+//        List<int> list = new List<int>();// 记录所有可能的完全平方数
+//        for (int i = 1; i * i <= n; i++)
+//            list.Add(i * i);
+//        int[] dp = new int[n + 1];
+//        dp[0] = 0;
+//        for (int i = 1; i <= n; i++)
+//        {
+//            dp[i] = int.MaxValue;
+//            foreach (int j in list)
+//            {
+//                if (i - j < 0)// 剪枝
+//                    break;
+//                else
+//                    dp[i] = Math.Min(dp[i], dp[i - j] + 1);
+//            }
+//        }
+//        return dp[n];
+//    }
+//}
+
+//public class Solution
+//{
+//    public int CoinChange(int[] coins, int amount)
+//    {
+//        int[] dp = new int[amount + 1];
+//        dp[0] = 0;
+//        for (int i = 1; i <= amount; i++)
+//        {
+//            dp[i] = int.MaxValue;
+//            foreach (int j in coins)
+//            {
+//                if (i - j < 0 || dp[i - j] == int.MaxValue)
+//                    continue;
+//                else
+//                {
+//                    dp[i] = Math.Min(dp[i], dp[i - j] + 1);
+//                }
+//            }
+//        }
+//        return dp[amount] == int.MaxValue ? -1 : dp[amount];
+//    }
+//}
+
+
+//public class Solution
+//{
+//    public bool WordBreak(string s, IList<string> wordDict)
+//    {
+//        int n = s.Length;
+//        bool[] dp = new bool[n + 1];
+//        dp[0] = true;
+//        for (int i = 0;i <n; i++)
+//        {
+//            foreach (string str in wordDict)
+//            {
+//                int len = str.Length;
+//                if (i + len > n)
+//                    continue;
+//                if (dp[i] && s.Substring(i, len) == str)
+//                    dp[i + len] = true;
+//                if (dp[n] == true)// 剪枝
+//                    return true;
+//            }
+//        }
+//        return false;
+//    }
+//}
+
+// O(n^2)
+//public class Solution
+//{
+//    public int LengthOfLIS(int[] nums)
+//    {
+//        int n = nums.Length;
+//        int[] dp = new int[n];
+//        int max = 1;
+//        for (int i = 0; i < n; i++)
+//        {
+//            dp[i] = 1;
+//            for (int j = 0; j <= i; j++)
+//            {
+//                if (nums[i] > nums[j])
+//                {
+//                    dp[i] = Math.Max(dp[i], dp[j] + 1);
+//                }
+//                max = Math.Max(max, dp[i]);
+//            }
+//        }
+//        return max;
+//    }
+//}
+
+//// 优化到O(nlogn)
+//public class Solution
+//{
+//    public int LengthOfLIS(int[] nums)
+//    {
+//        int n = nums.Length;
+//        int[] tails = new int[n];
+//        int max = 0;
+//        foreach (int num in nums)
+//        {
+//            int i = 0, j = max;// 当前的递增区间，用于二分查找
+//            while(i < j)
+//            {
+//                int mid = (i + j) / 2;
+//                if (tails[mid] < num)
+//                    i = mid + 1;
+//                else
+//                    j = mid;
+//            }
+//            tails[i] = num;// 找到第一个大于等于num的位置
+//            if (max == j) max++;
+//        }
+//        return max;
+//    }
+//}
+//// 通俗理解：
+//// 在一样长的最长子序列里面，我永远是所有元素最小的那个子序列，
+//// 后面随便给我来一个元素，它可能跟我组成更长的，而不可能跟你组更长的，
+//// 如果它跟我都不能组，跟你则更不可能组了，因为我最后一个元素比你小
+
+
+//public class Solution
+//{
+//    public int MaxProduct(int[] nums)
+//    {
+//        int maxVal = int.MinValue;
+//        int max = 1, min = 1;// 维护当前最大的正数 和 最小的负数
+//        for(int i = 0; i < nums.Length; i++)
+//        {
+//            // 负数会导致大数变小数 小数变大数
+//            if (nums[i] < 0)
+//            {   // 交换大数和小数，保证乘完大数还是大数 小数还是小数
+//                int tmp = max;
+//                max = min;
+//                min = tmp;
+//            }
+//            // 相乘
+//            max = Math.Max(nums[i], max * nums[i]);
+//            min = Math.Min(nums[i], min * nums[i]);
+//            // 记录最大值
+//            maxVal = Math.Max(maxVal, max);
+//        }
+//        return maxVal;
+//    }
+//}
+
 class Program
 {
     static void Main(string[] args)
@@ -4071,10 +4368,10 @@ class Program
         //n3.next = n4;
 
         Solution solution = new Solution();
-        int[] arr = { 4, 2, 8 };
+        int[] arr = { 7, 1, 5, 3, 6, 4 };
         int[] arr2 = { -1, 0, 1 };
         int[][] matrix = { new int[] { 5, 1, 9, 11 }, new int[] { 2, 4, 8, 10 }, new int[] { 13, 3, 6, 7 }, new int[] { 15, 14, 12, 16 } };
-        Console.Write(solution.MaxProfit(arr, arr2, 2));
+        Console.Write(solution.MaxProfit(arr));
         Console.WriteLine();
 
 
